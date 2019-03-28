@@ -1,0 +1,73 @@
+// MIT License (MIT)
+// https://github.com/Carandiru0
+// http://www.supersinfulsilicon.com
+// Copyright (c) 2019 Jason Tully
+//
+// shader : e(xyz) (axis)
+// arg: [direction] (sign of axis / direction for selected axis)
+// arg: [decay] ("inset" / border voxels for other axis') (optional)
+// usage:
+// xs ex [direction] [decay]
+// xs ey -1 2
+// xs ez 1 1
+
+#define E_ y
+#define O_ x
+#define OO_ z
+
+float direction = clamp(floor(iArgs[0]), -1.0, 1.0);
+float decay = max(floor(iArgs[1]), 0.0);
+
+bool isinside(vec3 vd) {
+
+	if (0 == decay)
+		return true;
+		
+	vec3 vs;
+	
+	vs = vd;
+	vs.O_ = vs.O_ + decay;
+	if(voxel(vs)!=iColorIndex) {
+	  return false;
+	}
+	vs = vd;
+	vs.O_ = vs.O_ - decay;
+	if(voxel(vs)!=iColorIndex) {
+	  return false;
+	}
+	
+	vs = vd;
+	vs.OO_ = vs.OO_ + decay;
+	if(voxel(vs)!=iColorIndex) {
+	  return false;
+	}
+	vs = vd;
+	vs.OO_ = vs.OO_ - decay;
+	if(voxel(vs)!=iColorIndex) {
+	  return false;
+	}
+	
+	return true;
+}
+
+bool isside(vec3 v) {
+  vec3 vd=v;
+  vd.E_=vd.E_ + direction;
+  if(voxel(vd)==iColorIndex){
+    return isinside(vd);
+  }
+  return false;
+}
+
+float map(vec3 v) {
+
+  float c = voxel(v);
+  
+  if(isside(v)){
+	return iColorIndex;
+  }
+  return c;
+}
+
+
+
