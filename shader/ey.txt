@@ -1,11 +1,17 @@
 // MIT License (MIT)
 // https://github.com/Carandiru0
-// http://www.supersinfulsilicon.com
+// http://bit.ly/supersinfulsilicon
 // Copyright (c) 2019 Jason Tully
 //
+// xs_begin
+// author : '@Carandiru'
+// arg : { id = '0'  name = 'direction'  value = '-1'  range = '-1 1'  step = '1'  decimal = '0' }
+// arg : { id = '1'  name = 'decay'  value = '0'  range = '0 255'  step = '1'  decimal = '0' }
+// xs_end
+//
 // shader : e(xyz) (axis)
-// arg: [direction] (sign of axis / direction for selected axis)
-// arg: [decay] ("inset" / border voxels for other axis') (optional)
+// [direction] (sign of axis / direction for selected axis)
+// [decay] ("inset" / border voxels for other axis') (optional)
 // usage:
 // xs ex [direction] [decay]
 // xs ey -1 2

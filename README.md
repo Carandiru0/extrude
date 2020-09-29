@@ -1,6 +1,6 @@
 # magicavoxel-extrude-shader
 
-[![Supports](https://img.shields.io/badge/MagicaVoxel-0.99.2-brightgreen.svg)][mv-link]
+[![Supports](https://img.shields.io/badge/MagicaVoxel-0.99.6.2-brightgreen.svg)][mv-link]
 
 __Extrude Shader for [MagicaVoxel](https://ephtracy.github.io/) to enhance common and repetitive tasks.__
 
@@ -22,5 +22,5 @@ The extrude shader will "duplicate" the voxels of the chosen palette color on th
 
 I hope that the voxel shader is as useful for you as it has been for me!
 
-[developer-link]: http://www.supersinfulsilicon.com/
+[developer-link]: http://bit.ly/supersinfulsilicon
 [mv-link]: https://ephtracy.github.io/
