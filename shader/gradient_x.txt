@@ -1,0 +1,31 @@
+// MIT License (MIT)
+// https://github.com/Carandiru0
+// http://bit.ly/supersinfulsilicon
+// Copyright (c) 2022 Jason Tully
+//
+// xs_begin
+// author : '@Carandiru'
+// arg : { id = '0'  name = 'coloridxbegin'  value = '1'  range = '1 255'  step = '1'  decimal = '0' }
+// arg : { id = '1'  name = 'coloridxend'  value = '255'  range = '1 255'  step = '1'  decimal = '0' }
+// arg : { id = '2'  name = 'reverse'  value = '0'  range = '0 1'  step = '1'  decimal = '0' }
+// xs_end
+
+float color_index_begin = clamp(floor(iArgs[0]), 1, 255);
+float color_index_end = clamp(floor(iArgs[1]), 1, 255);
+float reverse = clamp(floor(iArgs[2]), 0, 1);
+
+float map(vec3 v) {
+	float colorIndex = voxel(v);
+	
+	if (colorIndex == iColorIndex) {
+	
+		float t = v.x / iVolumeSize.x;
+		
+		if (0.0 != reverse) {
+			t = 1.0f - t;
+		}
+		colorIndex = mix(color_index_begin, color_index_end, t);
+	}
+	
+	return colorIndex;
+}
