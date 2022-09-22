@@ -1,8 +1,9 @@
-# magicavoxel-extrude-shader
+# magicavoxel-extrude-shader+bonus!
 
 [![Supports](https://img.shields.io/badge/MagicaVoxel-0.99.6.2-brightgreen.svg)][mv-link]
 
 __Extrude Shader for [MagicaVoxel](https://ephtracy.github.io/) to enhance common and repetitive tasks.__
++bonus shaders
 
 ## Installation
 
